@@ -8,7 +8,8 @@ function fixComputer(number) {
 }
 
 $('#fix-computer').on('click', function () {
-    computers += 1;
+    computers = computers + number;
+	document.getElementById("computers").innerHTML = computers;
 });
 
 function buyAV() {
