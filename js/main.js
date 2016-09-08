@@ -4,10 +4,10 @@ var av = 0;
 function fixComputer(number) {
     'use strict';
     computers = computers + number;
-    $.('#computers-fixed').text("computers");
+    $("#computers-fixed").text(15);
 }
 
-$('#fix-computer').on("click", fixComputer(1));
+$("#fix-computer").on("click", fixComputer(1));
 
 function buyAV() {
     'use strict';
