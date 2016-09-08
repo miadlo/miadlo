@@ -1,9 +1,5 @@
 var computers = 0;
 var av = 0;
-var save = {
-    computers: computers,
-    av: av
-};
 
 function fixComputer(number) {
     'use strict';
@@ -26,7 +22,12 @@ function buyAV() {
 
 function saveGame() {
     'use strict';
-    localStorage.setItem("savefile", JSON.stringify(save));
+    var save = {
+        computers: computers,
+        av: av
+    },
+        jsonSave = JSON.stringify(save);
+    localStorage.setItem("savefile", jsonSave);
 }
 
 function loadGame() {
@@ -45,5 +46,5 @@ function prettify(input) {
 window.setInterval(function () {
     'use strict';
     fixComputer(av);
-    
+    saveGame();
 }, 1000);
