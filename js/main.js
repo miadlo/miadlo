@@ -7,6 +7,10 @@ function fixComputer(number) {
     document.getElementById("computers").innerHTML = computers;
 }
 
+$('#fix-computer').on('click', function () {
+    computers += 1;
+});
+
 function buyAV() {
     'use strict';
     var avCost = Math.floor(10 * Math.pow(1.1, av)),
