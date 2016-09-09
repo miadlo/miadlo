@@ -13,8 +13,8 @@ function buyAV() {
     'use strict';
     var nextCost = Math.floor(10 * Math.pow(1.1, av));
     if (computers >= avCost) {
-        av = av + 1;
-        computers = computers - avCost;
+        av += 1;
+        computers -= avCost;
         avCost = nextCost;
 		updateLoop();
     }
@@ -52,7 +52,6 @@ function updateLoop() {
 	$("#computers-fixed").text(computers);
 	$("#av").text(av);
   $("#avCost").text(avCost);
-	saveGame();
 }
 
 window.setInterval(function () {
@@ -60,3 +59,15 @@ window.setInterval(function () {
     fixComputer(av);
 	  updateLoop();
 }, 1000);
+
+function deleteSave() {
+  'use strict';
+  var computers = 0;
+  var av = 0;
+  var manualClicks = 1;
+  var avCost = 10;
+  localStorage.removeItem('savefile');
+  updateLoop();
+}
+
+window.setInterval(saveGame(), 5000);
