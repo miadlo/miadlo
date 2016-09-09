@@ -50,7 +50,7 @@ function updateLoop() {
 	$("#computers-fixed").text(computers);
 	$("#av").text(av);
   var nextCost = Math.floor(10 * Math.pow(1.1, av));
-  $("#avCost").text(nextCost)
+  $("#avCost").text(nextCost);
 	saveGame();
 }
 
