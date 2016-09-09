@@ -8,7 +8,7 @@ function fixComputer(number) {
 	updateLoop();
 }
 
-$("#fix-computer").click(fixComputer(manualClicks));
+/* $("#fix-computer").click(fixComputer(manualClicks)); */
 
 function buyAV() {
     'use strict';
@@ -17,6 +17,7 @@ function buyAV() {
     if (computers >= avCost) {
         av = av + 1;
         computers = computers - avCost;
+		updateLoop();
     }
     $("#avCost").text(nextCost);
 }
@@ -54,5 +55,5 @@ function updateLoop() {
 window.setInterval(function () {
     'use strict';
     fixComputer(av);
-	updateLoop();
+	  updateLoop();
 }, 1000);
