@@ -36,7 +36,7 @@ function loadGame() {
     'use strict';
     var savegame = JSON.parse(localStorage.getItem("savefile"));
     if (typeof savegame.computers !== "undefined") {computers = savegame.computers; }
-    if (typeof savegame.av !== "undefined") {av = savegame.computers; }
+    if (typeof savegame.av !== "undefined") {av = savegame.av; }
 }
 
 function prettify(input) {
