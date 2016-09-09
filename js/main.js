@@ -1,5 +1,6 @@
 var computers = 0;
 var av = 0;
+var manualClicks = 1;
 
 function fixComputer(number) {
     'use strict';
@@ -7,7 +8,7 @@ function fixComputer(number) {
     $("#computers-fixed").text(computers);
 }
 
-$("#fix-computer").click(fixComputer(1));
+$("#fix-computer").click(fixComputer(manualClicks));
 
 function buyAV() {
     'use strict';
