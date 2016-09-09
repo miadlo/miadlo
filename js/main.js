@@ -1,8 +1,7 @@
 var computers = 0;
 var av = 0;
 var manualClicks = 1;
-/* var avCost = Math.floor(10 * Math.pow(1.1, av));
-var nextCost = Math.floor(10 * Math.pow(1.1, av)); */
+var avCost = 10;
 
 function fixComputer(number) {
     'use strict';
@@ -12,21 +11,22 @@ function fixComputer(number) {
 
 function buyAV() {
     'use strict';
-    var avCost = Math.floor(10 * Math.pow(1.1, av)),
-        nextCost = Math.floor(10 * Math.pow(1.1, av));
+    var nextCost = Math.floor(10 * Math.pow(1.1, av));
     if (computers >= avCost) {
         av = av + 1;
         computers = computers - avCost;
+        avCost = nextCost;
 		updateLoop();
     }
-   $("#avCost").text(nextCost);
 }
 
 function saveGame() {
     'use strict';
     var save = {
         computers: computers,
-        av: av
+        av: av,
+        manualClicks: manualClicks,
+        avCost: avCost,
     },
         jsonSave = JSON.stringify(save);
     localStorage.setItem("savefile", jsonSave);
@@ -37,6 +37,8 @@ function loadGame() {
     var savegame = JSON.parse(localStorage.getItem("savefile"));
     if (typeof savegame.computers !== "undefined") {computers = savegame.computers; }
     if (typeof savegame.av !== "undefined") {av = savegame.av; }
+    if (typeof savegame.manualClicks !== "undefined") {manualClicks = savegame.manualClicks}
+    if (typeof savegame.avCost !== "undefined") {avCost = savegame.avCost}
 }
 
 function prettify(input) {
@@ -49,8 +51,7 @@ function updateLoop() {
 	'use strict';
 	$("#computers-fixed").text(computers);
 	$("#av").text(av);
-  var nextCost = Math.floor(10 * Math.pow(1.1, av));
-  $("#avCost").text(nextCost);
+  $("#avCost").text(avCost);
 	saveGame();
 }
 
