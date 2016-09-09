@@ -17,10 +17,8 @@ function buyAV() {
     if (computers >= avCost) {
         av = av + 1;
         computers = computers - avCost;
-        document.getElementById('av').innerHTML = av;
-        document.getElementById('computers').innerHTML = computers;
     }
-    document.getElementById('avCost').innerHTML = nextCost;
+    $("#avCost").text(nextCost);
 }
 
 function saveGame() {
@@ -48,7 +46,8 @@ function prettify(input) {
 
 function updateLoop() {
 	'use strict';
-	$("#computers-fixed").text(computers)
+	$("#computers-fixed").text(computers);
+	$("#av").text(av);
 	saveGame();
 }
 
