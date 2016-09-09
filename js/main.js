@@ -4,8 +4,7 @@ var manualClicks = 1;
 
 function fixComputer(number) {
     'use strict';
-    computers = computers + number;
-    $("#computers-fixed").text(computers);
+    computers += number;
 }
 
 $("#fix-computer").click(fixComputer(manualClicks));
@@ -49,5 +48,6 @@ function prettify(input) {
 window.setInterval(function () {
     'use strict';
     fixComputer(av);
+	$("#computers-fixed").text(computers)
     saveGame();
 }, 1000);
