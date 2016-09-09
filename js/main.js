@@ -1,14 +1,14 @@
 var computers = 0;
 var av = 0;
 var manualClicks = 1;
+/* var avCost = Math.floor(10 * Math.pow(1.1, av));
+var nextCost = Math.floor(10 * Math.pow(1.1, av)); */
 
 function fixComputer(number) {
     'use strict';
     computers += number;
 	updateLoop();
 }
-
-/* $("#fix-computer").click(fixComputer(manualClicks)); */
 
 function buyAV() {
     'use strict';
@@ -19,7 +19,7 @@ function buyAV() {
         computers = computers - avCost;
 		updateLoop();
     }
-    $("#avCost").text(nextCost);
+   $("#avCost").text(nextCost);
 }
 
 function saveGame() {
